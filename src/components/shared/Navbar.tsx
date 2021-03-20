@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
+import useOutsideClick from "./useOutsideClick";
 
 const Navbar = () => {
   const [isOpenMoreMenu, setIsOpenMoreMenu] = useState(false);
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
+
+  const [hideMenuOnClickOutside, setHideMenuOnClickOutside] = useState(false);
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(ref, () => {
+    setIsOpenMoreMenu(false);
+  });
 
   return (
     <nav className="bg-gray-800 fixed w-full z-20">
@@ -112,7 +121,7 @@ const Navbar = () => {
                   Projects
                 </NavLink>
 
-                <div className="relative">
+                <div className="relative" ref={ref}>
                   {/* Item active: "text-gray-900", Item inactive: "text-gray-500" */}
                   <button
                     onClick={() => setIsOpenMoreMenu(!isOpenMoreMenu)}
