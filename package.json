@@ -46,6 +46,10 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.4",
-    "node-sass": "^5.0.0"
+    "@types/react-router-dom": "^5.1.7",
+    "install": "^0.13.0",
+    "node-sass": "^5.0.0",
+    "npm": "^7.6.3",
+    "react-router-dom": "^5.2.0"
   }
 }
